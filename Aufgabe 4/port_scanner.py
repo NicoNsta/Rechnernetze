@@ -29,7 +29,7 @@ def scan_tcp_port(port):
     # Port offen
     open_tcp_ports.append(port)
     try:
-        sock.send(b'Ping')
+        sock.send(b'Pingg')
         data = sock.recv(1024)
         print(f'[TCP] Port {port} geantwortet: {data!r}')
     except socket.timeout:
@@ -49,7 +49,7 @@ def scan_udp_port(port):
     try:
         # Mit connect() bekommst du ICMP-Unreachable als ConnectionResetError
         sock.connect((TARGET_IP, port))
-        sock.send(b'Ping')
+        sock.send(b'Pingg')
         data = sock.recv(1024)
     except socket.timeout:
         udp_no_response.append(port)

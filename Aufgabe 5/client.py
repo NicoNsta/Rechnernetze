@@ -68,6 +68,9 @@ def udp_listener():
                 # nur Update
                 continue
             # Handshake-Anfrage: ACK senden
+            # Benachrichtigung an den Empfänger
+            with print_lock:
+                print(f"\n{p_nick} hat einen P2P-Chat mit Ihnen gestartet")
             ack = pack_register(local_ip, local_tcp_port, my_nick)
             sock.sendto(ack, (ip, port))
 
